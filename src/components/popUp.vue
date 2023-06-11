@@ -2,8 +2,6 @@
 import { ref } from "vue"
 let isShow = ref(true);
 
-
-
 function toggleShow() {
   return this.isShow = !this.isShow;
 }
