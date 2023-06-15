@@ -2,9 +2,14 @@
 import terminal from './components/terminal.vue';
 import popUp from './components/popUp.vue';
 
+defineProps({
+  greetingMessage: Function
+})
+
 function callback() {
-  console.log("Hello, world")
+  console.log("Hello, world!")
 }
+
 </script>
 <template>
   <div class="backgroundimage">
@@ -13,6 +18,7 @@ function callback() {
   </div>
 
 </template>
+
 
 <style scoped>
 .backgroundimage {
