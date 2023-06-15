@@ -1,18 +1,59 @@
-<script setup>
-import { ref } from "vue"
+<script setup lang="ts">
+import { ref} from 'vue'
+
 let isShow = ref(true);
 
 function toggleShow() {
   return this.isShow = !this.isShow;
 }
 
+const VDownDrag = {
+  mounted: (el: HTMLElement) => {
+    let [x, y, startX, startY, moveX, moveY] = Array(6).fill(0) as number[]
+    el.addEventListener('mousedown', (e: MouseEvent) => {
+      // 防止鼠标移动到窗口外丢失 mouseup 事件
+      e.stopPropagation()
+      e.preventDefault()
+      x = e.pageX
+      y = e.pageY
+      startX = el.offsetLeft
+      startY = el.offsetTop
+      window.addEventListener('mousemove', fn)
+      window.addEventListener('mouseup', () => {
+        window.removeEventListener('mousemove', fn)
+      })
+      function fn(e: MouseEvent) {
+        e.stopImmediatePropagation()
+        requestAnimationFrame(() => {
+          moveX = e.pageX - x
+          moveY = e.pageY - y
+          el.style.left = `${startX + moveX}px`
+          let resY = 0
+          if (startY + moveY <= 0) {
+            // 防止过度拖动，超出窗口顶部外
+            resY = 0
+          } else if (startY + moveY >= window.innerHeight - 40) {
+            // 防止过度拖动，超出窗口底部外
+            resY = window.innerHeight - 40
+          } else {
+            resY = startY + moveY
+          }
+          el.style.top = `${resY}px`
+        })
+      }
+    })
+  }
+}
+
+
+
 </script>
 <template>
     <div>
-        <div class="box">
+        <div class="box" v-down-drag>
         <div class="grid place-items-center h-screen">
         <div v-show="isShow" class="">
-          <div class="upper-box">
+          <div ref="index"  class="upper-box" >
             <div class="button-box">
                 <span @click=toggleShow() style="background-color: #ff5f57" class="button" > </span>
                 <span style="background-color: #febc2e" class="button"> </span>
@@ -21,8 +62,6 @@ function toggleShow() {
           </div>
             <div class="inner-box">
               <div class="text-box">
-
-              
                 <span style="color: #c3856b">const</span> <span style="color: #e6d321"> greeting</span> = "Hello, world!";  <br>
                 <span style="color: #a7a792" >// My name is Martin AUBEUT.</span> <br>
                 <span style="color: #2ec8c7" >console</span>.<span style="color: #9cbc53">log</span>(<span style="color: #e6d321">greeting</span>); <br>
@@ -33,7 +72,7 @@ function toggleShow() {
                 <span style="color: #2ec8c7" >{ github :</span> <span class="text-[#e6d321]"> </span>  <a href="https://github.com/Awazez/" target="_blank">https://github.com/Awazez/</a> <span style="color: #2ec8c7" >}</span>,  <br>
                 <span style="color: #2ec8c7" >{ twitter :</span> <span class="text-[#e6d321]"> </span>  <a href="https://twitter.com/AwwAzez" target="_blank">https://twitter.com/AwwAzez</a> <span style="color: #2ec8c7" >}</span>  <br>
                 }
-
+                <input ref="input" />
               </div>
             </div>
         </div>
@@ -44,6 +83,10 @@ function toggleShow() {
     
 
     <style scoped>
+
+    #index {
+      position: fixed;
+    }
 
     a {
       color: white;
@@ -94,7 +137,7 @@ function toggleShow() {
       padding: 10px;
     }
 
-  
+    https://www.youtube.com/watch?v=XFp0qhubJg4&t=119s&ab_channel=IntwebTuT
     </style>
 
     
