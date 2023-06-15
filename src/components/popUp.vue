@@ -11,7 +11,6 @@ const VDownDrag = {
   mounted: (el: HTMLElement) => {
     let [x, y, startX, startY, moveX, moveY] = Array(6).fill(0) as number[]
     el.addEventListener('mousedown', (e: MouseEvent) => {
-      // 防止鼠标移动到窗口外丢失 mouseup 事件
       e.stopPropagation()
       e.preventDefault()
       x = e.pageX
@@ -30,10 +29,8 @@ const VDownDrag = {
           el.style.left = `${startX + moveX}px`
           let resY = 0
           if (startY + moveY <= 0) {
-            // 防止过度拖动，超出窗口顶部外
             resY = 0
           } else if (startY + moveY >= window.innerHeight - 40) {
-            // 防止过度拖动，超出窗口底部外
             resY = window.innerHeight - 40
           } else {
             resY = startY + moveY
