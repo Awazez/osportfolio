@@ -72,7 +72,6 @@ const VDownDrag = {
                 <span style="color: #2ec8c7" >{ github :</span> <span class="text-[#e6d321]"> </span>  <a href="https://github.com/Awazez/" target="_blank">https://github.com/Awazez/</a> <span style="color: #2ec8c7" >}</span>,  <br>
                 <span style="color: #2ec8c7" >{ twitter :</span> <span class="text-[#e6d321]"> </span>  <a href="https://twitter.com/AwwAzez" target="_blank">https://twitter.com/AwwAzez</a> <span style="color: #2ec8c7" >}</span>  <br>
                 }
-                <input ref="input" />
               </div>
             </div>
         </div>
