@@ -136,8 +136,6 @@ const VDownDrag = {
     .text-box {
       padding: 10px;
     }
-
-    https://www.youtube.com/watch?v=XFp0qhubJg4&t=119s&ab_channel=IntwebTuT
     </style>
 
     
