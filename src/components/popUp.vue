@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref} from 'vue'
+import TermWelcome from "./TermBody/TermWelcome.vue"
+import TermPrompt from "./TermBody/TermPrompt.vue"
 
 let isShow = ref(true);
 
@@ -58,17 +60,12 @@ const VDownDrag = {
             </div>
           </div>
             <div class="inner-box">
+              
               <div class="text-box">
-                <span style="color: #c3856b">const</span> <span style="color: #e6d321"> greeting</span> = "Hello, world!";  <br>
-                <span style="color: #a7a792" >// My name is Martin AUBEUT.</span> <br>
-                <span style="color: #2ec8c7" >console</span>.<span style="color: #9cbc53">log</span>(<span style="color: #e6d321">greeting</span>); <br>
-                <span style="color: #a7a792" >// I'm a french web developer. </span> <br>
-                <span style="color: #c3856b" >const</span> <span style="color: #e6d321"> contact</span> = {  <br>
-                <span style="color: #2ec8c7" >{ email :</span>   <a href="mailto:martin.aubeut@gmail.com" target="_blank">martin.aubeut@gmail.com</a> <span style="color: #2ec8c7" >}</span>  ,  <br>
-                <span style="color: #2ec8c7" >{ linkedin :</span> <span class="text-[#e6d321]"> </span>  <a href="https://www.linkedin.com/in/martin-aubeut-30452010b/" target="_blank">https://www.linkedin.com/in/martin-aubeut-30452010b/</a> <span style="color: #2ec8c7" >}</span>,  <br>
-                <span style="color: #2ec8c7" >{ github :</span> <span class="text-[#e6d321]"> </span>  <a href="https://github.com/Awazez/" target="_blank">https://github.com/Awazez/</a> <span style="color: #2ec8c7" >}</span>,  <br>
-                <span style="color: #2ec8c7" >{ twitter :</span> <span class="text-[#e6d321]"> </span>  <a href="https://twitter.com/AwwAzez" target="_blank">https://twitter.com/AwwAzez</a> <span style="color: #2ec8c7" >}</span>  <br>
-                }
+             
+                <TermWelcome/>
+                <TermPrompt/>
+               
               </div>
             </div>
         </div>
@@ -132,6 +129,7 @@ const VDownDrag = {
     .text-box {
       padding: 10px;
     }
+
     </style>
 
     
