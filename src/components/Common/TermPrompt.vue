@@ -3,7 +3,6 @@
             <div class="terminalPrompt">            
               <span class="terminalPromptUser">awazez@mac-mini-de-Martin ~ %</span>                               
               <span class="terminalPromptCursor"></span> 
-              <input>
               
             </div>        
           </section>
