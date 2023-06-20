@@ -1,7 +1,6 @@
-<script setup lang="ts">
-var currentDate = new Date();
+<script setup>
+let currentDate = new Date();
 console.log(currentDate);
-
 </script>
 
 <template>
